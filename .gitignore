@@ -1,0 +1,17 @@
+# Gitignore for the following technologies: Deno
+
+/.idea/
+/.vscode/
+
+/node_modules
+
+.env
+*.orig
+*.pyc
+*.swp
+
+/images/*
+!/images/.gitkeep
+
+/processed/*
+!/processed/.gitkeep
