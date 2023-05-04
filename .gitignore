@@ -15,3 +15,6 @@
 
 /processed/*
 !/processed/.gitkeep
+
+/original_templates/*
+!/original_templates/.gitkeep
