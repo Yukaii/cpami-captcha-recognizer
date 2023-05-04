@@ -25,7 +25,27 @@ async function processAndSplitDigits(imagePath: string) {
   const digitHeight = captcha.bitmap.height;
 
   for (let i = 0; i < 4; i++) {
-    const digit = captcha.clone().crop(i * digitWidth, 0, digitWidth, digitHeight);
+    let digit = captcha.clone().crop(i * digitWidth, 0, digitWidth, digitHeight);
+
+    // Find edges by scanning rows and columns
+    let left = digit.bitmap.width;
+    let right = 0;
+    let top = digit.bitmap.height;
+    let bottom = 0;
+
+    digit.scan(0, 0, digit.bitmap.width, digit.bitmap.height, (x, y, idx) => {
+      const value = digit.bitmap.data[idx];
+      if (value === 0) {
+        left = Math.min(left, x);
+        right = Math.max(right, x);
+        top = Math.min(top, y);
+        bottom = Math.max(bottom, y);
+      }
+    });
+
+    // Crop the digit based on the detected edges
+    digit.crop(left, top, right - left + 1, bottom - top + 1);
+
     await digit.writeAsync(path.join(__dirname, `./processed/thresholded_${path.basename(imagePath, '.jpg')}_${i + 1}.jpg`));
   }
 }
