@@ -61,7 +61,11 @@ async function recognizeCaptcha(imagePath: string, templates: jimp[]): Promise<s
 
 
 const templates = await loadTemplates();
-const imagePath = path.join(__dirname, './images/captcha_1.jpg');
-const recognizedCaptcha = await recognizeCaptcha(imagePath, templates);
 
-console.log(`Recognized captcha: ${recognizedCaptcha}`);
+for (let i = 1; i <= 20; i++) {
+  const imagePath = path.join(__dirname, `./images/captcha_${i}.jpg`);
+  const recognizedCaptcha = await recognizeCaptcha(imagePath, templates);
+
+  console.log(`Recognized captcha: ${recognizedCaptcha}`);
+}
+
