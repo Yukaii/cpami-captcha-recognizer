@@ -18,7 +18,7 @@
     const rawBits = []
     for (let i = 0; i < template.length; i++) {
       const bit = template[i];
-      if (bit === 0) {
+      if (bit === 1) {
         rawBits.push(0, 0, 0, 255);
       } else {
         rawBits.push(255, 255, 255, 255);
