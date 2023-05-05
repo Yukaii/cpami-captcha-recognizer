@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Recognize captcha on the page using template matching
 // @author       You
-// @match        http://cpabm.cpami.gov.tw/*
+// @match        https://cpabm.cpami.gov.tw/*
 // @grant        none
 // ==/UserScript==
 
@@ -165,11 +165,14 @@
     }
 
     console.log(`Recognized captcha: ${captchaText}`);
+
+    // auto-fill the captcha input
+    inputElement.value = captchaText;
   }
 
   // Wait for the image to load before recognizing the captcha
   window.addEventListener('load', () => {
-    setTimeout(recognizeCaptcha, 1000);
+    setTimeout(recognizeCaptcha, 300);
   });
 })();
 
