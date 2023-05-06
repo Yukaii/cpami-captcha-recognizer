@@ -1,5 +1,7 @@
 # 建築工程履歷查詢系統的自動 captcha 辨識
 
+https://user-images.githubusercontent.com/4230968/236598496-17b21d33-6115-45eb-a3f2-cdda4cc28ba6.mp4
+
 ## Introduction
 
 最近在刷租屋，發現某個物件在建案旁邊，想要根據模糊的 Google Map 街景圖裡面的建照號碼，找出實際的建案，卻發現營建署的網站有夠難用 XD
